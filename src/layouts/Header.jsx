@@ -10,7 +10,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/resizable-navbar";
-import { ToggleComponent } from "@/components/snippet/togglecomponent";
+import { ToggleComponent } from "@/components/snippet/Togglecomponent";
 import { useState } from "react";
 
 export default function NavbarDemo() {
