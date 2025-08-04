@@ -1,0 +1,171 @@
+:root {
+  --card-height: 40vw; /* Keep this for card height */
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --numcards: 3;
+  --outline-width: 0px;
+  --image-height: 20vw; /* New variable for image height */
+}
+
+main {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+#cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  margin-bottom: var(--card-margin);
+}
+
+#card1 {
+  --index: 1;
+}
+
+#card2 {
+  --index: 2;
+}
+
+#card3 {
+  --index: 3;
+}
+
+#card-4 {
+  --index: 4;
+}
+
+.card {
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--card-top-offset));
+}
+
+.cardContent {
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: "text img";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  padding: 30px;
+  height: var(--card-height); /* Ensure card height is maintained */
+}
+
+.cardContent > div {
+  grid-area: text;
+  width: 95%;
+  max-width: 800px;
+  place-self: center;
+  text-align: left;
+  display: grid;
+  gap: 1em;
+  place-items: start;
+}
+
+.cardContent > figure {
+  grid-area: img;
+  overflow: hidden;
+  /* Set specific height for figure */
+  display: flex;
+  align-items: center; /* Center image vertically */
+}
+
+.cardContent > figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 20px;
+}
+#card2 .cardContent { grid-template-areas: "img text"; }
+@media (max-width: 768px) {
+  :root {
+    --card-top-offset: 3em;
+    --image-height: 15vw; /* Smaller image height for mobile */
+  }
+}
+/* Animation */
+@supports (animation-timeline: works) {
+  @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets:
+      selector(#cards) start 1,
+      selector(#cards) start 0;
+    start: selector(#cards) start 1;
+    end: selector(#cards) start 0;
+    time-range: 4s;
+  }
+
+  .card {
+    --index0: calc(var(--index) - 1);
+    --reverse-index: calc(var(--numcards) - var(--index0));
+    --reverse-index0: calc(var(--reverse-index) - 1);
+  }
+
+  .cardContent {
+    transform-origin: 50% 0%;
+    will-change: transform;
+    --duration: calc(var(--reverse-index0) * 1s);
+    --delay: calc(var(--index0) * 1s);
+    animation: var(--duration) linear scale var(--delay) forwards;
+    animation-timeline: cards-element-scrolls-in-body;
+  }
+
+  @keyframes scale {
+    to {
+      transform: scale(
+        calc(1.1 - calc(0.1 * var(--reverse-index)))
+      );
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-height: auto; /* Let card grow based on content */
+  }
+
+
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    
+    gap : 20px;
+    border-radius: 15px;
+    height: auto !important; /* override var(--card-height) */
+  }
+
+  .cardContent > div {
+    width: 100%;
+    text-align: center;
+    place-items: center;
+  }
+
+  .cardContent > figure {
+    width: 90%;
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 1rem;
+  }
+ .cardContent { grid-template-areas: "img text";
+padding: 10px 10px;
+}
+main {
+  width: 90vw;
+}
+  .cardContent > figure > img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  #cards {
+    padding-bottom: 10px;
+  }
+}
