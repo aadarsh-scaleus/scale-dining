@@ -175,14 +175,14 @@ const items = [
     title: "What is ScaleDining?",
     Icon: <IoFastFood className="text-purple-400 w-8 h-8"/>,
     imgSrc:
-      "/public/assets/pos1.jpeg",
+      "/assets/pos1.jpeg",
     description:"ScaleDining is a cloud-based POS and restaurant management software designed for restaurants, cafes, and QSRs of all sizes. It helps you streamline orders, manage tables, track reservations, handle staff, and more — all from a single, easy-to-use platform."  },
   {
     id: 2,
     title: "Need Hardware to Use ?",
     Icon: <MdFastfood className="text-purple-400 w-8 h-8"/>,
     imgSrc:
-      "/public/assets/pos8.jpg",
+      "/assets/pos8.jpg",
     description:
       "No! ScaleDining is a web-based SaaS platform that works on any modern device — desktop, tablet, or smartphone. Optional hardware like receipt printers, cash drawers, or kitchen displays can be integrated if you prefer.",
   },
@@ -191,7 +191,7 @@ const items = [
     title: "Support Online Payments?",
  Icon: <MdOutlinePayment className="text-purple-400 w-8 h-8"/>,
    imgSrc:
-      "/public/assets/pos7.jpg",
+      "/assets/pos7.jpg",
     description:
       "Yes, ScaleDining integrates with popular payment gateways like Stripe and Razorpay to enable secure, fast, and flexible payment options for your customers.",
   },
@@ -200,7 +200,7 @@ const items = [
     title: "Free Trial Available?",
   Icon: <BiSolidFoodMenu className="text-purple-400 w-8 h-8"/>,
     imgSrc:
-      "/public/assets/pos10.jpg",
+      "/assets/pos10.jpg",
     description:
       "Absolutely! We offer a 30-day free trial so you can explore all features and see how ScaleDining helps your restaurant grow — no credit card required.",
   },
@@ -209,7 +209,7 @@ const items = [
     title: "Manage multiple branches or locations?",
  Icon: <FaLocationDot className="text-purple-400 w-8 h-8"/>,
    imgSrc:
-      "/public/assets/pos5.jpg",
+      "/assets/pos5.jpg",
     description:
       "Yes, you can manage and monitor multiple branches from a single dashboard, with separate menus, staff roles, and reports for each location.",
   },
@@ -218,7 +218,7 @@ const items = [
     title: "Offer Support?",
      Icon: <BiSolidOffer className="text-purple-400 w-8 h-8"/>,
   imgSrc:
-      "/public/assets/pos1.jpeg",
+      "/assets/pos1.jpeg",
     description:
       "Our dedicated support team is here to help you every step of the way. You can reach us via email at contact@scaleus.in for assistance with setup, training, or troubleshooting.",
   },
